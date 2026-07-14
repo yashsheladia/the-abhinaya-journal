@@ -5,9 +5,9 @@
 :root{
   --cream:      #F3ECDD;
   --cream-2:    #E8DCC2;
-  --terracotta: #BC4A26;
-  --terracotta-deep: #8C3418;
-  --terracotta-tint: #EFD9C8;
+  --terracotta: #9E120C;
+  --terracotta-deep: #6B0C08;
+  --terracotta-tint: #F3D6D2;
   --ink:        #221C17;
   --ink-soft:   #4A4038;
   --white:      #FFFDF8;
@@ -144,29 +144,12 @@ button{ font-family:inherit; cursor:pointer; }
   letter-spacing:-0.01em;
 }
 .brand .mark{
-  width:32px; height:32px;
-  border-radius:50%;
-  background:var(--terracotta);
-  position:relative;
   flex:none;
+  display:block;
+  width:34px;
+  height:30px;
 }
-.brand .mark::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  border:1px solid var(--cream);
-  margin:5px;
-}
-.brand .mark::before{
-  content:"";
-  position:absolute;
-  top:50%; left:50%;
-  width:4px; height:4px;
-  background:var(--cream);
-  border-radius:50%;
-  transform:translate(-50%,-50%);
-}
+footer .brand .mark{ width:38px; height:34px; }
 .brand small{
   display:block;
   font-family:var(--body);
@@ -518,7 +501,39 @@ footer.site-footer{
   border-radius:999px;
 }
 
-/* generic fade-in on scroll */
+/* ============================================================
+   Torn-paper edge dividers — used between color-block sections
+   ============================================================ */
+.torn-edge{
+  width:100%;
+  height:34px;
+  line-height:0;
+  overflow:hidden;
+}
+.torn-edge svg{ display:block; width:100%; height:100%; }
+.torn--cream-to-band{ background:var(--cream-2); }
+.torn--cream-to-band path{ fill:var(--cream); }
+.torn--band-to-cream{ background:var(--cream); }
+.torn--band-to-cream path{ fill:var(--cream-2); }
+.torn--cream-to-ink{ background:var(--ink); }
+.torn--cream-to-ink path{ fill:var(--cream); }
+.torn--cream2-to-ink{ background:var(--ink); }
+.torn--cream2-to-ink path{ fill:var(--cream-2); }
+
+/* ============================================================
+   Hand-drawn doodle accents
+   ============================================================ */
+.doodle{
+  position:absolute;
+  color:var(--terracotta);
+  opacity:.6;
+  pointer-events:none;
+}
+.doodle-field{ position:relative; }
+@media (max-width:760px){
+  .doodle{ display:none; }
+}
+
 .reveal{
   opacity:0;
   transform:translateY(18px);
