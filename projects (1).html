@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — The Abhinaya Journal</title>
+<meta name="description" content="Past, current, and future editions of the Abhinaya Journal, with every artist's work for each theme.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .filter-bar{
+    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:44px;
+  }
+  .filter-btn{
+    background:var(--white);
+    border:1px solid rgba(34,28,23,.16);
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:13.5px;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  .filter-btn.active{ background:var(--ink); color:var(--cream); border-color:var(--ink); }
+  .project-block{ margin-bottom:76px; }
+  .project-block:last-child{ margin-bottom:0; }
+  .project-block-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:16px; margin-bottom:28px;
+    border-bottom:1px solid rgba(34,28,23,.14);
+    padding-bottom:22px;
+  }
+  .project-block-head h2{ font-size:clamp(1.6rem,3vw,2.2rem); margin-top:8px; }
+  .project-year{ font-family:var(--display); font-style:italic; font-size:15px; color:var(--terracotta-deep); }
+  .work-card{ font-size:13.5px; }
+  .work-card h4{ font-family:var(--display); font-size:1rem; font-weight:600; margin-top:12px; }
+  .work-card p{ color:var(--ink-soft); margin-top:4px; }
+  .future-card{
+    border:1px dashed rgba(34,28,23,.3);
+    border-radius:6px;
+    padding:48px 32px;
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img class="mark" src="assets/logo-icon.png" alt="The Abhinaya Journal logo">
+      <span>The Abhinaya Journal<small>Annual Art Project</small></span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="journal.html">The Journal</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="artists.html">Artists</a></li>
+      </ul>
+      <a class="nav-ig nav-ig-mobile" href="https://www.instagram.com/the.abhinayajournal/" target="_blank" rel="noopener">Instagram ↗</a>
+    </nav>
+    <a class="nav-ig" href="https://www.instagram.com/the.abhinayajournal/" target="_blank" rel="noopener">Instagram ↗</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" style="padding-bottom:20px;">
+    <img class="doodle" src="assets/doodle-starfish-light.png" alt="" style="top:8px;right:7%;width:100px;transform:rotate(8deg);opacity:0.9">
+    <img class="doodle" src="assets/doodle-sunglasses-light.png" alt="" style="bottom:2%;left:4%;width:110px;transform:rotate(-8deg);opacity:0.5">
+    <div class="wrap">
+      <span class="eyebrow">Every edition</span>
+      <h1 style="font-size:clamp(2.2rem,5vw,3.6rem);margin-top:16px;max-width:16ch;">Past, current, and future themes</h1>
+      <p class="hero-sub" style="margin-top:20px;">Each project below is one year of the Journal — one theme, and everything every artist made in answer to it.</p>
+    </div>
+  </section>
+
+  <div class="torn-edge torn--red-to-cream" aria-hidden="true">
+    <svg viewBox="0 0 1200 44" preserveAspectRatio="none"><path d="M0,14 Q50,40 100,14 Q150,40 200,14 Q250,40 300,14 Q350,40 400,14 Q450,40 500,14 Q550,40 600,14 Q650,40 700,14 Q750,40 800,14 Q850,40 900,14 Q950,40 1000,14 Q1050,40 1100,14 Q1150,40 1200,14 L1200,0 L0,0 Z"/></svg>
+  </div>
+
+  <section style="padding-top:20px;">
+    <div class="wrap">
+
+      <div class="filter-bar reveal" role="group" aria-label="Filter projects by status">
+        <button class="filter-btn active" data-filter="all">All editions</button>
+        <button class="filter-btn" data-filter="current">Current</button>
+        <button class="filter-btn" data-filter="past">Past</button>
+        <button class="filter-btn" data-filter="future">Future</button>
+      </div>
+
+      <!-- CURRENT -->
+      <div class="project-block reveal" data-status="current" id="current">
+        <div class="project-block-head">
+          <div>
+            <span class="tag">Current — open now</span>
+            <h2>A Lyrical Imprint <span class="project-year">— 2026</span></h2>
+          </div>
+          <p style="max-width:34ch;color:var(--ink-soft);font-size:14px;">Choose a song you love. Let its lyric, mood, or rhythm become a piece of art in your medium.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="work-card">
+            <div class="tile" data-ph="Painting"></div>
+            <h4>Artist Name</h4>
+            <p>Painting — responding to "Song Title"</p>
+          </div>
+          <div class="work-card">
+            <div class="tile alt" data-ph="Photography"></div>
+            <h4>Artist Name</h4>
+            <p>Photography — responding to "Song Title"</p>
+          </div>
+          <div class="work-card">
+            <div class="tile alt2" data-ph="Poetry"></div>
+            <h4>Artist Name</h4>
+            <p>Poetry — responding to "Song Title"</p>
+          </div>
+          <div class="work-card">
+            <div class="tile alt" data-ph="Dance"></div>
+            <h4>Artist Name</h4>
+            <p>Dance film — responding to "Song Title"</p>
+          </div>
+          <div class="work-card">
+            <div class="tile alt2" data-ph="Cooking"></div>
+            <h4>Artist Name</h4>
+            <p>Cooking — responding to "Song Title"</p>
+          </div>
+          <div class="work-card">
+            <div class="tile" data-ph="Music"></div>
+            <h4>Artist Name</h4>
+            <p>Original song — responding to "Song Title"</p>
+          </div>
+        </div>
+        <p style="margin-top:22px;font-size:13px;color:var(--ink-soft);">Placeholder entries — submissions will be added here as they come in.</p>
+      </div>
+
+      <hr class="divider">
+
+      <!-- PAST -->
+      <div class="project-block reveal doodle-field" data-status="past" id="past" style="margin-top:76px;position:relative;">
+        <img class="doodle" src="assets/doodle-icecream.png" alt="" style="top:-10px;right:2%;width:90px;transform:rotate(8deg);opacity:0.55">
+        <img class="doodle" src="assets/doodle-pineapple.png" alt="" style="top:40px;right:15%;width:80px;transform:rotate(-6deg);opacity:0.4">
+        <div class="project-block-head">
+          <div>
+            <span class="tag is-ink">Pilot project — 2025</span>
+            <h2>Essence of Summer <span class="project-year">— 2025</span></h2>
+          </div>
+          <p style="max-width:36ch;color:var(--ink-soft);font-size:14px;">The pilot project at the Journal — all about capturing what summer means to every individual. Nostalgic verses, breathtaking stills, mangoes, music, animation, and warmth in every creation.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="work-card">
+            <div class="tile" data-ph="Poetry"></div>
+            <h4>Artist Name</h4>
+            <p>Poetry — nostalgic verses</p>
+          </div>
+          <div class="work-card">
+            <div class="tile alt" data-ph="Photography"></div>
+            <h4>Artist Name</h4>
+            <p>Photography — breathtaking stills</p>
+          </div>
+          <div class="work-card">
+            <div class="tile alt2" data-ph="Animation"></div>
+            <h4>Artist Name</h4>
+            <p>Animation</p>
+          </div>
+        </div>
+        <div style="margin-top:24px;">
+          <a href="artists.html" class="btn btn-ghost">See who took part →</a>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- FUTURE -->
+      <div class="project-block reveal" data-status="future" id="future" style="margin-top:76px;">
+        <div class="project-block-head">
+          <div>
+            <span class="tag">Future — 2027</span>
+            <h2>Theme <span class="project-year">— to be announced</span></h2>
+          </div>
+        </div>
+        <div class="future-card">
+          <div class="waveform-bars" style="justify-content:center;margin:0 auto 18px;">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <h3 style="font-size:1.3rem;">Next year's theme hasn't been chosen yet</h3>
+          <p style="margin-top:10px;color:var(--ink-soft);font-size:14.5px;max-width:44ch;margin-left:auto;margin-right:auto;">Follow along on Instagram — that's always where it's announced first.</p>
+          <div style="margin-top:20px;">
+            <a href="https://www.instagram.com/the.abhinayajournal/" target="_blank" rel="noopener" class="btn btn-ghost">Follow for the announcement ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="torn-edge torn--cream-to-deepred" aria-hidden="true">
+    <svg viewBox="0 0 1200 44" preserveAspectRatio="none"><path d="M0,14 Q50,40 100,14 Q150,40 200,14 Q250,40 300,14 Q350,40 400,14 Q450,40 500,14 Q550,40 600,14 Q650,40 700,14 Q750,40 800,14 Q850,40 900,14 Q950,40 1000,14 Q1050,40 1100,14 Q1150,40 1200,14 L1200,0 L0,0 Z"/></svg>
+  </div>
+  <section class="band-ink doodle-field">
+    <div class="wrap" style="text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">Want your work here?</span>
+      <h2 style="margin-top:16px;font-size:clamp(1.8rem,4vw,2.4rem);">This year's call is open now</h2>
+      <div style="margin-top:26px;">
+        <a href="journal.html#how-it-works" class="btn btn-primary">How to take part →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:var(--cream)">
+          <img class="mark" src="assets/logo-icon-light.png" alt="The Abhinaya Journal logo">
+          <span>The Abhinaya Journal<small style="color:#9C8E7C">Annual Art Project</small></span>
+        </div>
+        <p style="margin-top:16px;font-size:14px;color:#C9BCA9;max-width:32ch;">An annual, open-call art project — one theme, every artform, one imprint a year.</p>
+        <a class="footer-ig" href="https://www.instagram.com/the.abhinayajournal/" target="_blank" rel="noopener">@the.abhinayajournal ↗</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="journal.html">What is the Journal</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="artists.html">Artists</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>This year</h4>
+        <ul>
+          <li><a href="projects.html#current">A Lyrical Imprint, 2026</a></li>
+          <li><a href="journal.html#how-it-works">How to take part</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Say hello</h4>
+        <ul>
+          <li><a href="mailto:hello@abhinayajournal.com">hello@abhinayajournal.com</a></li>
+          <li><a href="https://www.instagram.com/the.abhinayajournal/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Abhinaya Journal. Made by artists, for artists.</span>
+      <span>All submitted works remain property of their respective artists.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
