@@ -332,7 +332,7 @@ nav.primary-nav .nav-ig-mobile{ display:none; }
   border-bottom:1px solid rgba(243,236,221,.25);
   overflow:hidden;
   margin-top:56px;
-  background:var(--terracotta-deep);
+  background:var(--terracotta);
 }
 .ticker-track{
   display:flex;
@@ -391,7 +391,7 @@ section{ padding:84px 0; }
 .band .btn-primary:hover{ background:var(--white); color:var(--terracotta-deep); }
 .band .btn-ghost{ border-color:var(--cream); color:var(--cream); }
 .band .btn-ghost:hover{ background:var(--cream); color:var(--terracotta-deep); }
-.band-ink{ background:var(--terracotta-deep); color:var(--cream); }
+.band-ink{ background:var(--terracotta); color:var(--cream); }
 .band-ink .ink-soft{ color:#E7C9C2; }
 
 /* ============================================================
@@ -431,7 +431,7 @@ section{ padding:84px 0; }
    Footer
    ============================================================ */
 footer.site-footer{
-  background:var(--terracotta-deep);
+  background:var(--terracotta);
   color:var(--cream);
   padding:64px 0 28px;
 }
@@ -541,9 +541,9 @@ footer.site-footer{
 .torn--red-to-cream path{ fill:var(--terracotta); }
 .torn--cream-to-red{ background:var(--terracotta); }
 .torn--cream-to-red path{ fill:var(--cream); }
-.torn--cream-to-deepred{ background:var(--terracotta-deep); }
+.torn--cream-to-deepred{ background:var(--terracotta); }
 .torn--cream-to-deepred path{ fill:var(--cream); }
-.torn--red-to-deepred{ background:var(--terracotta-deep); }
+.torn--red-to-deepred{ background:var(--terracotta); }
 .torn--red-to-deepred path{ fill:var(--terracotta); }
 
 /* ============================================================
@@ -573,7 +573,18 @@ footer.site-footer{
 /* ============================================================
    Art preview cards — image, author, title, divider, stats row
    ============================================================ */
-.art-card{ color:var(--ink); }
+.art-card{
+  color:var(--ink);
+  background:var(--white);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 0 0 1px rgba(34,28,23,.08);
+}
+.art-card .tile{ border-radius:0; box-shadow:none; }
+.art-card-row{ padding:0 16px; margin-top:16px; }
+.art-card-title{ padding:0 16px; }
+.art-card-divider{ margin-left:16px; margin-right:16px; width:auto; }
+.art-card-stats{ padding:0 16px 16px; }
 .art-card-row{
   display:flex;
   align-items:center;
@@ -643,3 +654,48 @@ footer.site-footer{
   line-height:1.15;
 }
 .project-banner .doodle{ z-index:1; }
+
+/* ============================================================
+   Project banner header layout (responsive)
+   ============================================================ */
+.project-block-head--banner{
+  display:grid;
+  grid-template-columns:1.3fr 0.9fr;
+  align-items:center;
+  gap:40px;
+  border-bottom:none;
+}
+@media (max-width:760px){
+  .project-block-head--banner{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+  .project-block-head--banner .project-banner{
+    max-width:280px;
+    margin:0 auto;
+  }
+}
+
+/* ============================================================
+   Mobile polish pass — tighten spacing and scale for small screens
+   ============================================================ */
+@media (max-width:640px){
+  section{ padding:52px 0; }
+  .hero{ padding:36px 0 28px; }
+  .hero h1{ font-size:2.5rem; }
+  .hero-actions{ gap:10px; }
+  .hero-actions .btn{ flex:1 1 auto; justify-content:center; }
+  .hero-theme-card{ padding:24px; }
+  .section-head{ margin-bottom:32px; }
+  .grid{ gap:18px; }
+  .ticker-track span{ font-size:13px; padding:12px 20px; }
+  .footer-grid{ gap:32px 24px; }
+  footer.site-footer{ padding:48px 0 24px; }
+  .card{ padding:22px; }
+  .btn{ padding:13px 22px; font-size:13.5px; }
+  .hero-actions{ flex-direction:column; align-items:stretch; }
+}
+@media (max-width:420px){
+  .hero h1{ font-size:2.15rem; }
+  .hero-theme-card h2{ font-size:1.6rem; }
+}
