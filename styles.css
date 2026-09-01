@@ -907,4 +907,4 @@ body.lightbox-locked{ overflow:hidden; }
 }
 
 /* Make carousel and tile images look clickable */
-.art-carousel-track img, .art-card > .tile{ cursor:zoom-in; }
+.art-carousel-track img{ cursor:zoom-in; }
