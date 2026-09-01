@@ -102,3 +102,119 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// Fullscreen lightbox — click any carousel image to view large, swipe to browse
+document.addEventListener('DOMContentLoaded', function () {
+  var carousels = document.querySelectorAll('.art-carousel');
+  if (!carousels.length) return;
+
+  // Build the lightbox DOM once
+  var overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML =
+    '<button class="lightbox-close" aria-label="Close">&times;</button>' +
+    '<button class="lightbox-arrow prev" aria-label="Previous image">&#8249;</button>' +
+    '<button class="lightbox-arrow next" aria-label="Next image">&#8250;</button>' +
+    '<div class="lightbox-track"></div>' +
+    '<div class="lightbox-dots"></div>' +
+    '<div class="lightbox-caption"></div>';
+  document.body.appendChild(overlay);
+
+  var track = overlay.querySelector('.lightbox-track');
+  var dotsWrap = overlay.querySelector('.lightbox-dots');
+  var caption = overlay.querySelector('.lightbox-caption');
+  var closeBtn = overlay.querySelector('.lightbox-close');
+  var prevBtn = overlay.querySelector('.lightbox-arrow.prev');
+  var nextBtn = overlay.querySelector('.lightbox-arrow.next');
+
+  var currentCaptionBase = '';
+
+  function openLightbox(images, startIndex, captionText) {
+    track.innerHTML = images.map(function (src) {
+      return '<div class="lightbox-slide"><img src="' + src + '" alt=""></div>';
+    }).join('');
+    dotsWrap.innerHTML = images.map(function (_, i) {
+      return '<span class="' + (i === startIndex ? 'active' : '') + '"></span>';
+    }).join('');
+    currentCaptionBase = captionText || '';
+    updateCaption(startIndex, images.length);
+
+    overlay.classList.add('open');
+    document.body.classList.add('lightbox-locked');
+
+    // Jump to the clicked slide without animating
+    requestAnimationFrame(function () {
+      track.scrollLeft = startIndex * track.clientWidth;
+    });
+  }
+
+  function updateCaption(index, total) {
+    if (total > 1) {
+      caption.textContent = currentCaptionBase ? currentCaptionBase + ' — ' + (index + 1) + ' / ' + total : (index + 1) + ' / ' + total;
+    } else {
+      caption.textContent = currentCaptionBase;
+    }
+  }
+
+  function closeLightbox() {
+    overlay.classList.remove('open');
+    document.body.classList.remove('lightbox-locked');
+    track.innerHTML = '';
+  }
+
+  function currentIndex() {
+    return Math.round(track.scrollLeft / track.clientWidth);
+  }
+
+  track.addEventListener('scroll', function () {
+    window.requestAnimationFrame(function () {
+      var idx = currentIndex();
+      var dots = dotsWrap.querySelectorAll('span');
+      dots.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+      updateCaption(idx, dots.length);
+    });
+  });
+
+  dotsWrap.addEventListener('click', function (e) {
+    if (e.target.tagName !== 'SPAN') return;
+    var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('span'));
+    var i = dots.indexOf(e.target);
+    track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', function () {
+    track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+  });
+  nextBtn.addEventListener('click', function () {
+    track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+    if (e.key === 'ArrowLeft') track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+  });
+
+  // Wire up every carousel's images to open the lightbox
+  carousels.forEach(function (carousel) {
+    var imgs = Array.prototype.slice.call(carousel.querySelectorAll('.art-carousel-track img'));
+    if (!imgs.length) return;
+    var sources = imgs.map(function (img) { return img.src; });
+
+    var card = carousel.closest('.art-card');
+    var authorEl = card ? card.querySelector('.art-card-author') : null;
+    var titleEl = card ? card.querySelector('.art-card-title') : null;
+    var captionText = [authorEl ? authorEl.textContent : '', titleEl ? titleEl.textContent : ''].filter(Boolean).join(' — ');
+
+    imgs.forEach(function (img, i) {
+      img.addEventListener('click', function () {
+        openLightbox(sources, i, captionText);
+      });
+    });
+  });
+});
