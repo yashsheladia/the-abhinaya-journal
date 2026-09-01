@@ -71,3 +71,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// Swipeable art carousels (Instagram-style multi-image cards)
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.art-carousel').forEach(function (carousel) {
+    var track = carousel.querySelector('.art-carousel-track');
+    var dots = carousel.querySelectorAll('.art-carousel-dots span');
+    var prevBtn = carousel.querySelector('.art-carousel-arrow.prev');
+    var nextBtn = carousel.querySelector('.art-carousel-arrow.next');
+    if (!track) return;
+
+    function updateDots() {
+      var index = Math.round(track.scrollLeft / track.clientWidth);
+      dots.forEach(function (d, i) { d.classList.toggle('active', i === index); });
+    }
+    track.addEventListener('scroll', function () {
+      window.requestAnimationFrame(updateDots);
+    });
+    dots.forEach(function (dot, i) {
+      dot.parentElement.style.pointerEvents = 'auto';
+      dot.addEventListener('click', function () {
+        track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+      });
+    });
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+      track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+      track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+    });
+  });
+});
