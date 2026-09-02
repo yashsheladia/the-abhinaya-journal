@@ -133,9 +133,15 @@ button{ font-family:inherit; cursor:pointer; }
   position:sticky;
   top:0;
   z-index:50;
+  border-bottom:1px solid rgba(34,28,23,0.1);
+}
+.site-header::before{
+  content:"";
+  position:absolute;
+  inset:0;
   background:rgba(243,236,221,0.92);
   backdrop-filter:blur(6px);
-  border-bottom:1px solid rgba(34,28,23,0.1);
+  z-index:-1;
 }
 .site-header .wrap{
   display:flex;
