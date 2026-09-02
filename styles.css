@@ -908,3 +908,21 @@ body.lightbox-locked{ overflow:hidden; }
 
 /* Make carousel and tile images look clickable */
 .art-carousel-track img{ cursor:zoom-in; }
+
+/* ============================================================
+   Video block for dance/performance pieces
+   ============================================================ */
+.art-card-video{
+  width:100%;
+  display:block;
+  background:#000;
+  border-radius:6px 6px 0 0;
+}
+.art-card-video-wrap{
+  position:relative;
+  overflow:hidden;
+  border-radius:6px 6px 0 0;
+}
+.art-card-subcarousel{
+  margin-top:2px;
+}
