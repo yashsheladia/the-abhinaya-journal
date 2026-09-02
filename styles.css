@@ -23,7 +23,7 @@
   --display: "Providence Sans", "Libre Caslon Display", "Iowan Old Style", Georgia, serif;
   --display-italic: "Providence Sans", "Libre Caslon Text", "Iowan Old Style", Georgia, serif;
   --brand-font: "Providence Sans", "Caveat", "Libre Caslon Display", sans-serif;
-  --body: "Providence Sans", "Work Sans", "Helvetica Neue", Arial, sans-serif;
+  --body: "Work Sans", "Helvetica Neue", Arial, sans-serif;
 
   --max: 1180px;
   --edge: clamp(20px, 5vw, 64px);
