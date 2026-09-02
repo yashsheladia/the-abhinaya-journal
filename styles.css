@@ -918,3 +918,14 @@ body.lightbox-locked{ overflow:hidden; }
   display:block;
   background:#000;
 }
+
+/* ============================================================
+   Audio player block for beats/music pieces
+   ============================================================ */
+.art-card-audio{
+  width:100%;
+  display:block;
+  margin-top:10px;
+  padding:0 16px;
+  box-sizing:border-box;
+}
