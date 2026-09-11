@@ -628,6 +628,14 @@ footer.site-footer{
   border-top:1px solid rgba(34,28,23,.16);
   margin-top:18px;
 }
+.art-card-caption{
+  padding:0 16px;
+  margin-top:10px;
+  font-family:var(--body);
+  font-size:13px;
+  line-height:1.55;
+  color:var(--ink-soft);
+}
 .art-card-stats{
   display:flex;
   align-items:center;
