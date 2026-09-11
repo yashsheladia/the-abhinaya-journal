@@ -218,3 +218,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// Artist card captions: collapse long captions behind a "Read more" toggle
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.art-card-caption-wrap').forEach(function (wrap) {
+    var caption = wrap.querySelector('.art-card-caption');
+    var toggle = wrap.querySelector('.art-card-caption-toggle');
+    if (!caption || !toggle) return;
+    toggle.addEventListener('click', function () {
+      var collapsed = caption.classList.toggle('is-collapsed');
+      toggle.textContent = collapsed ? 'Read caption' : 'Hide caption';
+    });
+  });
+});

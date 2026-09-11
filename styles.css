@@ -628,14 +628,32 @@ footer.site-footer{
   border-top:1px solid rgba(34,28,23,.16);
   margin-top:18px;
 }
-.art-card-caption{
+.art-card-caption-wrap{
   padding:0 16px;
   margin-top:10px;
+}
+.art-card-caption{
   font-family:var(--body);
   font-size:13px;
   line-height:1.55;
   color:var(--ink-soft);
 }
+.art-card-caption.is-collapsed{
+  display:none;
+}
+.art-card-caption-toggle{
+  display:inline-block;
+  margin-top:0;
+  font-family:var(--body);
+  font-size:12px;
+  font-weight:600;
+  color:var(--terracotta-deep);
+  background:none;
+  border:none;
+  padding:0;
+  cursor:pointer;
+}
+.art-card-caption-toggle:hover{ text-decoration:underline; }
 .art-card-stats{
   display:flex;
   align-items:center;
