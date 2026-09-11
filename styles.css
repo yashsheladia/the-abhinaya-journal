@@ -654,6 +654,20 @@ footer.site-footer{
   cursor:pointer;
 }
 .art-card-caption-toggle:hover{ text-decoration:underline; }
+.art-card-meta{
+  padding:0 16px;
+  margin-top:6px;
+  font-family:var(--display-italic);
+  font-style:italic;
+  font-size:13px;
+  color:var(--ink-soft);
+}
+.art-card-meta a{
+  color:var(--terracotta-deep);
+  text-decoration:none;
+  border-bottom:1px solid rgba(107,12,8,.35);
+}
+.art-card-meta a:hover{ border-bottom-color:var(--terracotta-deep); }
 .art-card-stats{
   display:flex;
   align-items:center;
